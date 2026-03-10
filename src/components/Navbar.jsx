@@ -6,7 +6,7 @@ function Navbar() {
         <div class="flex lg:flex-1">
           <a href="#" class="-m-1.5 p-1.5">
             <span class="sr-only">Your Company</span>
-            <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="" class="h-8 w-auto" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/RecoveryLogo.png" alt="" class="h-8 w-auto" />
           </a>
         </div>
         <div class="flex lg:hidden">
@@ -19,8 +19,8 @@ function Navbar() {
         </div>
         <el-popover-group class="hidden lg:flex lg:gap-x-12">
           <div class="relative">
-            <button popovertarget="desktop-menu-product" class="flex items-center gap-x-1 text-sm/6 font-semibold text-white">
-              Product
+            <button popovertarget="desktop-menu-product" class="flex items-center gap-x-1 text-sm/6 font-semibold transition ease-in-out text-white hover:text-red-500">
+              Bakla
               <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5 flex-none text-gray-500">
                 <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
               </svg>
@@ -117,12 +117,12 @@ function Navbar() {
             </el-popover>
           </div>
 
-          <a href="#" class="text-sm/6 font-semibold text-white transition ease-in-out duration-200 hover:text-blue-400">Features</a>
-          <a href="#" class="text-sm/6 font-semibold text-white transition ease-in-out duration-200 hover:text-blue-400">Marketplace</a>
-          <a href="#" class="text-sm/6 font-semibold text-white transition ease-in-out duration-200 hover:text-blue-400">Company</a>
+          <a href="#" class="text-sm/6 font-semibold text-white transition ease-in-out duration-200 hover:text-red-500">si</a>
+          <a href="#" class="text-sm/6 font-semibold text-white transition ease-in-out duration-200 hover:text-red-500">Ken</a>
+          <a href="#" class="text-sm/6 font-semibold text-white transition ease-in-out duration-200 hover:text-red-500">Oborza</a>
         </el-popover-group>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+          <a href="#" class="text-sm/6 font-semibold text-white hover:text-red-500">Log in <span aria-hidden="true">&rarr;</span></a>
         </div>
       </nav>
       <el-dialog>

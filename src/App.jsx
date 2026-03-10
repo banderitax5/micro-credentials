@@ -1,16 +1,12 @@
 import './App.css'
-import Navbar from './components/Navbar.jsx'
-import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 
 function App() {
 
   return (
-    <>
-      <Navbar />
+    <div className="flex flex-col min-h-screen">
       <Home />
-      <Footer />
-    </>
+    </div>
   )
 }
 
