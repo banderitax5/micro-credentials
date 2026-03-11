@@ -1,97 +1,89 @@
+import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Main from "../components/Main";
+import PageWrapper from "../components/PageWrapper";
+import Card from "../components/Card";
+import Input from "../components/Input";
+import Button from "../components/Button";
 import { useState } from 'react';
+import supabase from "../utils/supabase";
 
-function Register(){
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
+const Register = () => {
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+	const [formData, setFormData] = useState({
+		firstname: '',
+		lastname: '',
+		email: '',
+		password: '',
+		confirmPassword: '',
+	});
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match!');
-      return;
-    }
-    console.log('Form submitted:', formData);
-  };
+	const handleInputChange = (event) => {
+		const inputName = event.target.name;
+		const inputValue = event.target.value;
+		console.log(`Input label: ${inputName}, Input value: ${inputValue}`);
+		setFormData({...formData,[inputName]: inputValue});
+	}
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <div className="w-full max-w-md p-8 bg-gray-800 rounded-lg shadow-lg">
-        <h1 className="text-2xl font-bold text-white mb-6 text-center">Register</h1>
-        
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-gray-300 mb-2" htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
+	const handleSubmit = async () => {
+		const { data, error } = await supabase.auth.signUp({
+			email: formData.email,
+			password: formData.password,
+		})
+		console.log(formData)
+	}
 
-          <div>
-            <label className="block text-gray-300 mb-2" htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-300 mb-2" htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-300 mb-2" htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded transition duration-200"
-          >
-            Register
-          </button>
-        </form>
-      </div>
-    </div>
-  )
+	return (
+		<PageWrapper>
+			<Navbar />
+			<Main className="flex justify-center">
+				<div className="flex items-center">
+					<Card>
+						<h1 className="text-xl font-bold">Signup</h1>
+						<Input
+							label="Firstname"
+							name="firstname"
+							type="text"
+							placeholder="Enter your firstname"
+							onChange={handleInputChange}
+						/>
+						<Input
+							label="Lastname"
+							name="lastname"
+							type="text"
+							placeholder="Enter your lastname"
+							onChange={handleInputChange}
+						/>
+						<Input
+							label="Email"
+							name="email"
+							type="email"
+							placeholder="Enter your email"
+							onChange={handleInputChange}
+						/>
+						<Input
+							label="Password"
+							name="password"
+							type="password"
+							placeholder="Enter your password"
+							onChange={handleInputChange}
+						/>
+						<Input
+							label="Confirm Password"
+							name="confirmPassword"
+							type="password"
+							placeholder="Confirm your password"
+							onChange={handleInputChange}
+						/>
+						<button className="bg-white btn btn-neutral btn-outline px-32 hover:bg-gray-900" onClick={handleSubmit}>
+							Register
+						</button>
+					</Card>
+				</div>
+			</Main>
+			<Footer />
+		</PageWrapper>
+	);
 }
-
-export default Register
+export default Register;

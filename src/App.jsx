@@ -1,12 +1,17 @@
 import './App.css'
+import { StrictMode } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router'
 import Home from './pages/Home.jsx'
+import Register from './pages/Register.jsx'
+
 
 function App() {
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Home />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/register" element={<Register />} />
+    </Routes>
   )
 }
 

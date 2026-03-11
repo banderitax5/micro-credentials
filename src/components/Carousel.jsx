@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function MainContent() {
+function Carousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
@@ -87,4 +87,4 @@ function MainContent() {
   )
 }
 
-export default MainContent
+export default Carousel

@@ -1,16 +1,18 @@
-import App from '../App.jsx'
 import Navbar from '../components/Navbar.jsx'
-import MainContent from '../components/MainContent.jsx'
+import Carousel from '../components/Carousel.jsx'
 import Footer from '../components/Footer.jsx'
+import PageWrapper from '../components/PageWrapper.jsx'
 
 
 function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <MainContent />
-      <Footer />
+      <PageWrapper>
+        <Navbar />
+        <Carousel />
+        <Footer />
+      </PageWrapper>
     </div>
   )
 }
